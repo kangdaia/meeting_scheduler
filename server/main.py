@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from server.apps.auth.router import router as auth_router
 
 app = FastAPI()
 
@@ -11,6 +12,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# 인증 라우터 추가
+app.include_router(auth_router, prefix="/auth")
 
 # 루트 엔드포인트
 @app.get("/")
