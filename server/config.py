@@ -23,10 +23,16 @@ class Settings(BaseSettings):
     
     # 데이터베이스 설정
     DATABASE_URL: Optional[str] = Field(
-        default="sqlite:///./sql_app.db",
+        default="postgresql+psycopg://localhost:5432/db",
         description="데이터베이스 연결 문자열"
     )
     
+    # Redis 설정
+    REDIS_URL: Optional[str] = Field(
+        default="redis://localhost:6379",
+        description="Redis 연결 문자열"
+    )
+
     # JWT 설정
     SECRET_KEY: str = Field(
         default="your-secret-key",
