@@ -349,3 +349,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# custom
+
+.react-router/
